@@ -1,0 +1,24 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  # ./client - build context
+  - docker build -t orenkole/react-test -f ./client/Dockerfile.dev ./client
+
+script:
+  - docker run orenkole/react-test npm test -- --coverage
+
+after_success:
+  - docker build -t orenkole/multi-client ./client
+  - docker build -t orenkole/multi-nginx ./nginx
+  - docker build -t orenkole/multi-server ./server
+  - docker build -t orenkole/multi-worker ./worker
+  # Log in to the docker CLI
+  # echo "$DOCKER_PASSWORD" - retrieve docker password from environment varible and emit it over standard in as input to the next command (on the other side of |)
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  # Take those image and push the to docker hub
+  - docker push orenkole/multi-client
+  - docker push orenkole/multi-nginx
+  - docker push orenkole/multi-server
+  - docker push orenkole/multi-worker
