@@ -18,7 +18,7 @@ after_success:
   # echo "$DOCKER_PASSWORD" - retrieve docker password from environment varible and emit it over standard in as input to the next command (on the other side of |)
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin docker.io
   # Take those image and push the to docker hub
-  - docker push orenkole/multi-client
-  - docker push orenkole/multi-nginx
-  - docker push orenkole/multi-server
-  - docker push orenkole/multi-worker
+  - docker push orenkole/multi-client:latest
+  - docker push orenkole/multi-nginx:latest
+  - docker push orenkole/multi-server:latest
+  - docker push orenkole/multi-worker:latest
