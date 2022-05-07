@@ -10,15 +10,15 @@ script:
   - docker run orenkole/react-test npm test -- --coverage
 
 after_success:
-  - docker build -t orenkole/multi-client ./client
-  - docker build -t orenkole/multi-nginx ./nginx
-  - docker build -t orenkole/multi-server ./server
-  - docker build -t orenkole/multi-worker ./worker
+  - docker build -t orenkole/multiClient ./client
+  - docker build -t orenkole/multiNginx ./nginx
+  - docker build -t orenkole/multiServer ./server
+  - docker build -t orenkole/multiWorker ./worker
   # Log in to the docker CLI
   # echo "$DOCKER_PASSWORD" - retrieve docker password from environment varible and emit it over standard in as input to the next command (on the other side of |)
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin docker.io
   # Take those image and push the to docker hub
-  - docker push orenkole/multi-client:latest
-  - docker push orenkole/multi-nginx:latest
-  - docker push orenkole/multi-server:latest
-  - docker push orenkole/multi-worker:latest
+  - docker push orenkole/multiClient
+  - docker push orenkole/multiNginx
+  - docker push orenkole/multiServer
+  - docker push orenkole/multiWorker
