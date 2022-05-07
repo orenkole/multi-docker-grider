@@ -3,7 +3,7 @@ services:
   - docker
 
 before_install:
-  # ./client - build context (test)
+  # ./client - build context
   - docker build -t orenkole/react-test -f ./client/Dockerfile.dev ./client
 
 script:
