@@ -1,11 +1,11 @@
 version: "3"
 services:
   client:
-    image: "orenkole/multiclient"
+    image: "qb64kqjepetz1g/multiclient"
     mem_limit: 128m
     hostname: client
   server:
-    image: "orenkole/multiserver"
+    image: "qb64kqjepetz1g/multiserver"
     mem_limit: 128m
     hostname: api
     environment:
@@ -17,14 +17,14 @@ services:
       - PGPASSWORD=$PGPASSWORD
       - PGPORT=$PGPORT
   worker:
-    image: "orenkole/multiworker"
+    image: "qb64kqjepetz1g/multiworker"
     mem_limit: 128m
     hostname: worker
     environment:
       - REDIS_HOST=$REDIS_HOST
       - REDIS_PORT=$REDIS_PORT
   nginx:
-    image: "orenkole/multinginx"
+    image: "qb64kqjepetz1g/multinginx"
     mem_limit: 128m
     hostname: nginx
     ports:
