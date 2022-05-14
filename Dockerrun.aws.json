@@ -17,14 +17,14 @@
     },
     {
       "name": "worker",
-      "image": "qb64kqjepetz1g/worker",
+      "image": "qb64kqjepetz1g/multiworker",
       "hostname": "worker",
       "essential": false,
       "memory": 128
     },
     {
       "name": "nginx",
-      "image": "qb64kqjepetz1g/worker",
+      "image": "qb64kqjepetz1g/multiworker",
       "hostname": "nginx",
       "essential": true,
       "portMappings": [
