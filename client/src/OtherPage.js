@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 export default () => {
   return (
     <div>
-      Test travis: Set PGPASSWORD to postgrespassword!
+      Im some other page!
       <Link to="/">Go back home</Link>
     </div>
   );
