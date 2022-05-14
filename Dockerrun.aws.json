@@ -24,7 +24,7 @@
     },
     {
       "name": "nginx",
-      "image": "qb64kqjepetz1g/multiworker",
+      "image": "qb64kqjepetz1g/multinginx",
       "hostname": "nginx",
       "essential": true,
       "portMappings": [
